@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -10,7 +9,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Home</title>
+	<title>Attendance Submissions</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -40,39 +39,62 @@
 	<div class="brand clearfix">
 		<a href="index.html" class="logo"><img src="img/logo.jpg" class="img-responsive" alt=""></a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
+		
 	</div>
 
 	<div class="ts-main-content">
 		<nav class="ts-sidebar">
 			<ul class="ts-sidebar-menu">
 				
-				<li class="ts-label">Staff</li>
-				<li class="open"><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li class="ts-label">Parents</li>
+				<li class="open"><a href="index.html"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+
 			</ul>
 		</nav>
 		<div class="content-wrapper">
 			<div class="container-fluid">
-
 				<div class="row">
 					<div class="col-md-12">
+						<h2 class="page-title">Attendance</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-heading">Absence form</div>
+									<div class="panel-body">
+									    <!-- Form submit script -->
+										<form action="parentsubmit.php" method="post">
+                                          Name (Ex. Joshua Huang): <br>
+                                          <input type ="text" name = "name" class="form-control" required type="text"/><br>
+                                          <br>
+                                          Date (MM/DD/YYYY): <br>
+										  <!-- Date Autofill -->
+                                          <input name="date" class="form-control" id="item34_date_1" required type="text"
+                                          <br>
+										  <br>
+										  <br>
+										  Grade (Preschool, 6): <br>
+                                          <input type ="text" name = "grade" class="form-control"/><br>
+                                          <br>
+										  Classification (Cubbies, Sparks, T&T): <br>
+                                          <input type="radio" name="type" value="Cubbies"> Cubbies<br>
+                                          <input type="radio" name="type" value="Sparks"> Sparks<br>
+                                          <input type="radio" name="type" value="T&T"> T&T<br>
+                                          <input type="radio" name="type" value="LIT"> LIT<br><br>                                          <br>
+                                          Absent:<br>
+                                          <input type="radio" name="absent" value="Yes"> Yes<br>
+										  <br>
+                                          <input type="submit" name="Submit" value="Submit" class="btn btn-info/>
 
-						<h2 class="page-title">Home</h2>
-						
-										<div class="alert alert-dismissible alert-warning">
-											<button type="button" class="close" data-dismiss="alert"><i class="fa fa-close"></i></button>
-											<strong>Welcome:</strong> If you're staff, use the staff site, if you're a parent, use the standard submission page.</a>
-										</div>
-										<br>
-										<a href="parent" class="btn btn-primary">Parent</a>
-										<br>
-										<br>
-										<a href="staff" class="btn btn-primary">Staff</a>
 									</div>
 								</div>
 							</div>
-						</div>
-						
-						
+
+
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="clearfix pt pb">
 
 					</div>
 				</div>
