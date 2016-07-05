@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Attendance Records</title>
+	<title>Records</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -52,7 +52,7 @@
 			<!-- Menu -->
 				<li class="ts-label">Staff</li>
 				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-				<li class="open"><a href="tables.php"><i class="fa fa-table"></i> Attendance Records</a></li>
+				<li class="open"><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
 				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
 
 			</ul>
@@ -63,8 +63,7 @@
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Attendance Records</h2>
-
+						<h2 class="page-title">Records</h2>
 						<!-- Grabbed table info from database -->	
                         <?php
                         $server = mysql_connect("158.69.60.74","admin_awana", "testpass1");
@@ -72,7 +71,7 @@
                         $query = mysql_query("select * from people");
                         ?>
 		                <div class="panel panel-default">
-								<div class="panel-heading">Database Table</div>
+								<div class="panel-heading">Attendance</div>
 								<div class="panel-body">
 									<table class="table table-bordered table-striped">
 										<thead>
@@ -106,6 +105,9 @@
 										<br>
 										<input  type="submit" name="submit" value="Search" class="btn btn-success">
 									</form>
+									<br>
+									<br>
+									<a href="parentsubmissions.php" class="btn btn-info">Parent submissions</a>
 								</div>
 						</div>		
 					</div>

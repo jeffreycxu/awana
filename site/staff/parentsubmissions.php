@@ -10,7 +10,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Home</title>
+	<title>Attendance Records</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -34,20 +34,27 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+	
+	
 </head>
 
 <body>
 	<div class="brand clearfix">
 		<a href="index.html" class="logo"><img src="img/logo.jpg" class="img-responsive" alt=""></a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
+		
 	</div>
 
 	<div class="ts-main-content">
 		<nav class="ts-sidebar">
 			<ul class="ts-sidebar-menu">
-				
+
+			<!-- Menu -->
 				<li class="ts-label">Staff</li>
-				<li class="open"><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
+				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+
 			</ul>
 		</nav>
 		<div class="content-wrapper">
@@ -56,23 +63,51 @@
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Home</h2>
-						
-										<div class="alert alert-dismissible alert-warning">
-											<button type="button" class="close" data-dismiss="alert"><i class="fa fa-close"></i></button>
-											<strong>Welcome:</strong> If you're staff, use the staff site, if you're a parent, use the standard submission page.</a>
-										</div>
-										<br>
-										<a href="parent" class="btn btn-primary">Parent</a>
-										<br>
-										<br>
-										<a href="staff" class="btn btn-primary">Staff</a>
-									</div>
+						<h2 class="page-title">Parent Submitted Absences</h2>
+						<a href="tables.php" class="btn btn-success">Back to main table</a>
+						<br>
+						<br>
+						<!-- Grabbed table info from database -->	
+                        <?php
+                        $server = mysql_connect("158.69.60.74","admin_awana", "testpass1");
+                        $db =  mysql_select_db("admin_awana",$server);
+                        $query = mysql_query("select * from parent");
+                        ?>
+		                <div class="panel panel-default">
+								<div class="panel-heading">Database Table</div>
+								<div class="panel-body">
+									<table class="table table-bordered table-striped">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Date</th>
+												<th>Grade</th>
+												<th>Classified</th>
+												<th>Absent</th>
+												</tr>
+											</thead>
+											<tbody>
+											<?php
+                                            while ($row = mysql_fetch_array($query)) {
+                                            echo "<tr>";
+											//print table
+                                            echo "<td>".$row[name]."</td>";
+                                            echo "<td>".$row[date]."</td>";
+											echo "<td>".$row[grade]."</td>";
+											echo "<td>".$row[type]."</td>";
+                                            echo "<td>".$row[absent]."</td>";
+                                            echo "</tr>";
+                                            }
+                                            ?>
+											</tbody>
+									</table>
 								</div>
-							</div>
-						</div>
-						
-						
+						</div>		
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="clearfix pt pb">
 
 					</div>
 				</div>
