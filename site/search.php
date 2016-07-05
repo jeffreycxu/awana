@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -52,7 +51,7 @@
 			<!-- Menu -->
 				<li class="ts-label">Staff</li>
 				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-				<li class="open"><a href="tables.php"><i class="fa fa-table"></i> Attendance Records</a></li>
+				<li><a href="tables.php"><i class="fa fa-table"></i> Attendance Records</a></li>
 				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
 
 			</ul>
@@ -63,14 +62,10 @@
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Attendance Records</h2>
-
-						<!-- Grabbed table info from database -->	
-                        <?php
-                        $server = mysql_connect("158.69.60.74","admin_awana", "testpass1");
-                        $db =  mysql_select_db("admin_awana",$server);
-                        $query = mysql_query("select * from people");
-                        ?>
+						<h2 class="page-title">Attendance Records for Member</h2>
+						<a href="tables.php" class="btn btn-success">Back to main table</a>
+						<br>
+						<br>
 		                <div class="panel panel-default">
 								<div class="panel-heading">Database Table</div>
 								<div class="panel-body">
@@ -82,30 +77,40 @@
 												<th>Grade</th>
 												<th>Classified</th>
 												<th>Absent</th>
-												</tr>
-											</thead>
-											<tbody>
+											</tr>
+										</thead>
+										<tbody>
 											<?php
-                                            while ($row = mysql_fetch_array($query)) {
-                                            echo "<tr>";
-											//print table
-                                            echo "<td>".$row[name]."</td>";
-                                            echo "<td>".$row[date]."</td>";
-											echo "<td>".$row[grade]."</td>";
-											echo "<td>".$row[type]."</td>";
-                                            echo "<td>".$row[absent]."</td>";
-                                            echo "</tr>";
-                                            }
-                                            ?>
-											</tbody>
+												if(isset($_POST['submit'])){
+													if(isset($_GET['go'])){
+														if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){
+															$name=$_POST['name'];
+															$db=mysql_connect  ("158.69.60.74", "admin_awana",  "testpass1") or die ('I cannot connect to the database  because: ' . mysql_error());
+															$mydb=mysql_select_db("admin_awana");
+															$sql="SELECT  name, date, grade, type, absent FROM people WHERE name LIKE '%" . $name .  "%' OR date LIKE '%" . $name ."%'";
+															$result=mysql_query($sql);
+																while($row=mysql_fetch_array($result)){
+																	$name  =$row['name'];
+																	$date=$row['date'];
+																	$grade=$row['grade'];
+																	$type=$row['type'];
+																	$absent=$row['absent'];
+																	echo "<td>".$row[name]."</td>";
+																	echo "<td>".$row[date]."</td>";
+																	echo "<td>".$row[grade]."</td>";
+																	echo "<td>".$row[type]."</td>";
+																	echo "<td>".$row[absent]."</td>";
+																	echo "</tr>";
+																}
+															}
+															else{
+																echo  "<p>Please enter a search query</p>";
+															}
+													}
+												}
+											?>
+										</tbody>
 									</table>
-									<br>
-									<h4>Search for member</h4>
-									<form  method="post" action="search.php?go"  id="searchform">
-										<input  type="text" name="name" class="form-control" required type="text">
-										<br>
-										<input  type="submit" name="submit" value="Search" class="btn btn-success">
-									</form>
 								</div>
 						</div>		
 					</div>

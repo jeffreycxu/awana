@@ -72,7 +72,7 @@
 									    <!-- Form submit script -->
 										<form action="attendancesubmit.php" method="post">
                                           Name (Ex. Joshua Huang): <br>
-                                          <input type ="text" name = "name" class="form-control"/><br>
+                                          <input type ="text" name = "name" class="form-control" required type="text"/><br>
                                           <br>
                                           Date (MM/DD/YYYY): <br>
 										  <!-- Date Autofill -->
@@ -89,7 +89,7 @@
                                           Absent:<br>
                                           <input type="radio" name="absent" value="Yes"> Yes<br>
                                           <input type="radio" name="absent" value="No"> No<br><br> 
-                                          <input type="submit" class="btn btn-info/>
+                                          <input type="submit" name="Submit" value="Submit" class="btn btn-info/>
 
 									</div>
 								</div>
