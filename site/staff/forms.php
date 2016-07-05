@@ -51,7 +51,7 @@
 				<!-- Link Menu -->
 				<li class="ts-label">Staff</li>
 				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
-				<li><a href="tables.php"><i class="fa fa-table"></i> Attendance Records</a></li>
+				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
 				<li class="open"><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
 
 			</ul>
@@ -62,7 +62,7 @@
 				<div class="row">
 					<div class="col-md-12">
 					
-						<h2 class="page-title">Attendance</h2>
+						<h2 class="page-title">Attendance Submission</h2>
 
 						<div class="row">
 							<div class="col-md-6">
