@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -9,7 +10,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Submission Script</title>
+	<title>Home</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -45,8 +46,10 @@
 		<nav class="ts-sidebar">
 			<ul class="ts-sidebar-menu">
 				
-				<li class="ts-label">Parent</li>
-				<li><a href="index.html"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+				<li class="ts-label">Staff</li>
+				<li class="open"><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
+				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
 			</ul>
 		</nav>
 		<div class="content-wrapper">
@@ -55,27 +58,25 @@
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Database submission page</h2>
+						<h2 class="page-title">Home</h2>
 						
-						<?php
-                        $con = mysql_connect("158.69.60.74","admin_awana","password");
-                        if (!$con)
-                        {
-                        die('Could not connect: ' . mysql_error());
-                        }
-						mysql_select_db("admin_awana", $con);
-                        $sql="INSERT INTO parent (name, date, grade, type, absent)
-                        VALUES
-                        ('$_POST[name]','$_POST[date]','$_POST[grade]','$_POST[type]','$_POST[absent]')";
-                        if (!mysql_query($sql,$con))
-                        {
-                        die('Error: ' . mysql_error());
-                        }
-                        echo "Success, attendance record added to our database!";
-                        mysql_close($con)
-                        ?>
+										<div class="alert alert-dismissible alert-warning">
+											<button type="button" class="close" data-dismiss="alert"><i class="fa fa-close"></i></button>
+											<strong>Warning:</strong> This site is in beta and slightly buggy, please report any bugs!</a>
+											<br>
+											<br>
+											<strong>Known Bugs:</strong> Inspect element can be used to change radio button value from Yes/No to any text.
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>

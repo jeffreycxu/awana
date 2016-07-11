@@ -1,9 +1,11 @@
+
 <!doctype html>
 <html lang="en" class="no-js">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Device resize -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -28,6 +30,7 @@
 	<!-- Admin Stye -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- For Internet Explorer 9 -->
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -44,9 +47,12 @@
 	<div class="ts-main-content">
 		<nav class="ts-sidebar">
 			<ul class="ts-sidebar-menu">
-				
-				<li class="ts-label">Parent</li>
-				<li><a href="index.html"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+				<!-- Link Menu -->
+				<li class="ts-label">Staff</li>
+				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
+				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+				<li><a href="bookforms.php"><i class="fa fa-edit"></i> Book Submission</a></li>
 			</ul>
 		</nav>
 		<div class="content-wrapper">
@@ -57,16 +63,18 @@
 
 						<h2 class="page-title">Database submission page</h2>
 						
+						<!-- PHP that submits form info to server database -->
 						<?php
                         $con = mysql_connect("158.69.60.74","admin_awana","password");
                         if (!$con)
                         {
                         die('Could not connect: ' . mysql_error());
                         }
+						//Submit to server
 						mysql_select_db("admin_awana", $con);
-                        $sql="INSERT INTO parent (name, date, grade, type, absent)
+                        $sql="INSERT INTO section (name, date, book, sections)
                         VALUES
-                        ('$_POST[name]','$_POST[date]','$_POST[grade]','$_POST[type]','$_POST[absent]')";
+                        ('$_POST[name]','$_POST[date]','$_POST[book]','$_POST[sections]')";
                         if (!mysql_query($sql,$con))
                         {
                         die('Error: ' . mysql_error());

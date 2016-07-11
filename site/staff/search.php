@@ -53,7 +53,7 @@
 				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
 				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
 				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
-
+				<li><a href="bookforms.php"><i class="fa fa-edit"></i> Book Submission</a></li>
 			</ul>
 		</nav>
 		<div class="content-wrapper">
@@ -85,7 +85,7 @@
 													if(isset($_GET['go'])){
 														if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){
 															$name=$_POST['name'];
-															$db=mysql_connect  ("158.69.60.74", "admin_awana",  "testpass1") or die ('I cannot connect to the database  because: ' . mysql_error());
+															$db=mysql_connect  ("158.69.60.74", "admin_awana",  "password") or die ('I cannot connect to the database  because: ' . mysql_error());
 															$mydb=mysql_select_db("admin_awana");
 															$sql="SELECT  name, date, grade, type, absent FROM people WHERE name LIKE '%" . $name .  "%' OR date LIKE '%" . $name ."%'";
 															$result=mysql_query($sql);
