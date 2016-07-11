@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" class="no-js">
 
@@ -10,7 +9,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Home</title>
+	<title>Attendance Records</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -34,20 +33,24 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+	
+	
 </head>
 
 <body>
 	<div class="brand clearfix">
 		<a href="index.html" class="logo"><img src="img/logo.jpg" class="img-responsive" alt=""></a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
+		
 	</div>
 
 	<div class="ts-main-content">
 		<nav class="ts-sidebar">
 			<ul class="ts-sidebar-menu">
-				
+
+			<!-- Menu -->
 				<li class="ts-label">Staff</li>
-				<li class="open"><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
 				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
 				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
 				<li><a href="bookforms.php"><i class="fa fa-edit"></i> Book Submission</a></li>
@@ -59,21 +62,60 @@
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Home</h2>
-						
-										<div class="alert alert-dismissible alert-warning">
-											<button type="button" class="close" data-dismiss="alert"><i class="fa fa-close"></i></button>
-											<strong>Warning:</strong> This site is in beta and slightly buggy, please report any bugs!</a>
-											<br>
-											<br>
-											<strong>Known Bugs:</strong> Inspect element can be used to change radio button value from Yes/No to any text.
-										</div>
-									</div>
+						<h2 class="page-title">Attendance Records for Member</h2>
+						<a href="tables.php" class="btn btn-success">Back to main table</a>
+						<br>
+						<br>
+		                <div class="panel panel-default">
+								<div class="panel-heading">Database Table</div>
+								<div class="panel-body">
+									<table class="table table-bordered table-striped">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Date</th>
+												<th>Book</th>
+												<th>Sections Completed</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+												if(isset($_POST['submit'])){
+													if(isset($_GET['go'])){
+														if(preg_match("/^[  a-zA-Z]+/", $_POST['name'])){
+															$name=$_POST['name'];
+															$db=mysql_connect  ("158.69.60.74", "admin_awana",  "password") or die ('I cannot connect to the database  because: ' . mysql_error());
+															$mydb=mysql_select_db("admin_awana");
+															$sql="SELECT  name, date, book, sections FROM section WHERE name LIKE '%" . $name .  "%' OR date LIKE '%" . $name ."%'";
+															$result=mysql_query($sql);
+																while($row=mysql_fetch_array($result)){
+																	$name  =$row['name'];
+																	$date=$row['date'];
+																	$grade=$row['grade'];
+																	$type=$row['type'];
+																	$absent=$row['absent'];
+																	echo "<td>".$row[name]."</td>";
+																	echo "<td>".$row[date]."</td>";
+																	echo "<td>".$row[book]."</td>";
+																	echo "<td>".$row[sections]."</td>";
+																	echo "</tr>";
+																}
+															}
+															else{
+																echo  "<p>Please enter a search query</p>";
+															}
+													}
+												}
+											?>
+										</tbody>
+									</table>
 								</div>
-							</div>
-						</div>
-						
-						
+						</div>		
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="clearfix pt pb">
 
 					</div>
 				</div>

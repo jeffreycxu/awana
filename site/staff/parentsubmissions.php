@@ -54,6 +54,7 @@
 				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
 				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
 				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+				<li><a href="bookforms.php"><i class="fa fa-edit"></i> Book Submission</a></li>
 
 			</ul>
 		</nav>
@@ -69,7 +70,7 @@
 						<br>
 						<!-- Grabbed table info from database -->	
                         <?php
-                        $server = mysql_connect("158.69.60.74","admin_awana", "testpass1");
+                        $server = mysql_connect("158.69.60.74","admin_awana", "password");
                         $db =  mysql_select_db("admin_awana",$server);
                         $query = mysql_query("select * from parent");
                         ?>

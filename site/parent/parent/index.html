@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Submission Script</title>
+	<title>Attendance Submissions</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -39,43 +39,64 @@
 	<div class="brand clearfix">
 		<a href="index.html" class="logo"><img src="img/logo.jpg" class="img-responsive" alt=""></a>
 		<span class="menu-btn"><i class="fa fa-bars"></i></span>
+		
 	</div>
 
 	<div class="ts-main-content">
 		<nav class="ts-sidebar">
 			<ul class="ts-sidebar-menu">
 				
-				<li class="ts-label">Parent</li>
-				<li><a href="index.html"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+				<li class="ts-label">Parents</li>
+				<li class="open"><a href="index.html"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+
 			</ul>
 		</nav>
 		<div class="content-wrapper">
 			<div class="container-fluid">
-
 				<div class="row">
 					<div class="col-md-12">
+						<h2 class="page-title">Attendance</h2>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-heading">Absence form</div>
+									<div class="panel-body">
+									    <!-- Form submit script -->
+										<form action="parentsubmit.php" method="post">
+                                          Name (Ex. Joshua Huang): <br>
+                                          <input type ="text" name = "name" class="form-control" required type="text"/><br>
+                                          <br>
+                                          Date (MM/DD/YYYY): <br>
+										  <!-- Date Autofill -->
+                                          <input name="date" class="form-control" id="item34_date_1" required type="text"
+                                          <br>
+										  <br>
+										  <br>
+										  Grade (Preschool, 6): <br>
+                                          <input type ="text" name = "grade" class="form-control"/><br>
+                                          <br>
+										  Classification (Cubbies, Sparks, T&T): <br>
+                                          <input type ="text" name = "type" class="form-control"/><br>
+                                          <br>
+                                          Absent:<br>
+                                          <input type="radio" name="absent" value="Yes"> Yes<br>
+										  <br>
+                                          <input type="submit" name="Submit" value="Submit" class="btn btn-info/>
 
-						<h2 class="page-title">Database submission page</h2>
-						
-						<?php
-                        $con = mysql_connect("158.69.60.74","admin_awana","password");
-                        if (!$con)
-                        {
-                        die('Could not connect: ' . mysql_error());
-                        }
-						mysql_select_db("admin_awana", $con);
-                        $sql="INSERT INTO parent (name, date, grade, type, absent)
-                        VALUES
-                        ('$_POST[name]','$_POST[date]','$_POST[grade]','$_POST[type]','$_POST[absent]')";
-                        if (!mysql_query($sql,$con))
-                        {
-                        die('Error: ' . mysql_error());
-                        }
-                        echo "Success, attendance record added to our database!";
-                        mysql_close($con)
-                        ?>
+									</div>
+								</div>
+							</div>
+
+
 					</div>
 				</div>
+				
+				<div class="row">
+					<div class="clearfix pt pb">
+
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
