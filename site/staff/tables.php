@@ -54,7 +54,7 @@
 				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
 				<li class="open"><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
 				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
-
+				<li><a href="bookforms.php"><i class="fa fa-edit"></i> Book Submission</a></li>
 			</ul>
 		</nav>
 		<div class="content-wrapper">
@@ -68,7 +68,7 @@
                         <?php
                         $server = mysql_connect("158.69.60.74","admin_awana", "testpass1");
                         $db =  mysql_select_db("admin_awana",$server);
-                        $query = mysql_query("select * from people");
+                        $query = mysql_query("select * from people");  
                         ?>
 		                <div class="panel panel-default">
 								<div class="panel-heading">Attendance</div>
@@ -109,7 +109,50 @@
 									<br>
 									<a href="parentsubmissions.php" class="btn btn-info">Parent submissions</a>
 								</div>
+						</div>	
+						<br>
+						<br>
+						<?php
+                        $server = mysql_connect("158.69.60.74","admin_awana", "testpass1");
+                        $db =  mysql_select_db("admin_awana",$server);
+                        $query = mysql_query("select * from section");  
+                        ?>
+						<div class="panel panel-default">
+								<div class="panel-heading">Book Records</div>
+								<div class="panel-body">
+									<table class="table table-bordered table-striped">
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Date</th>
+												<th>Book</th>
+												<th>Sections Completed</th>
+												</tr>
+											</thead>
+											<tbody>
+											<?php
+                                            while ($row = mysql_fetch_array($query)) {
+                                            echo "<tr>";
+											//print table
+                                            echo "<td>".$row[name]."</td>";
+                                            echo "<td>".$row[date]."</td>";
+											echo "<td>".$row[book]."</td>";
+											echo "<td>".$row[sections]."</td>";
+                                            echo "</tr>";
+                                            }
+                                            ?>
+											</tbody>
+									</table>
+									<br>
+									<h4>Search for member</h4>
+									<form  method="post" action="searchbook.php?go"  id="searchform">
+										<input  type="text" name="name" class="form-control" required type="text">
+										<br>
+										<input  type="submit" name="submit" value="Search" class="btn btn-success">
+									</form>
+								</div>
 						</div>		
+					</div>
 					</div>
 				</div>
 

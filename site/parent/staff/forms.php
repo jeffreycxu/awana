@@ -5,12 +5,13 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Adjust dynamically for different devices -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>Attendance Records</title>
+	<title>Attendance Submissions</title>
 
 	<!-- Font awesome -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -29,13 +30,12 @@
 	<!-- Admin Stye -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- For Internet Explorer -->
 	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-	
-	
 </head>
 
 <body>
@@ -48,13 +48,11 @@
 	<div class="ts-main-content">
 		<nav class="ts-sidebar">
 			<ul class="ts-sidebar-menu">
-
-			<!-- Menu -->
+				<!-- Link Menu -->
 				<li class="ts-label">Staff</li>
 				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
 				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
-				<li><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
-				<li><a href="bookforms.php"><i class="fa fa-edit"></i> Book Submission</a></li>
+				<li class="open"><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
 
 			</ul>
 		</nav>
@@ -63,50 +61,44 @@
 
 				<div class="row">
 					<div class="col-md-12">
+					
+						<h2 class="page-title">Attendance Submission</h2>
 
-						<h2 class="page-title">Parent Submitted Absences</h2>
-						<a href="tables.php" class="btn btn-success">Back to main table</a>
-						<br>
-						<br>
-						<!-- Grabbed table info from database -->	
-                        <?php
-                        $server = mysql_connect("158.69.60.74","admin_awana", "testpass1");
-                        $db =  mysql_select_db("admin_awana",$server);
-                        $query = mysql_query("select * from parent");
-                        ?>
-		                <div class="panel panel-default">
-								<div class="panel-heading">Database Table</div>
-								<div class="panel-body">
-									<table class="table table-bordered table-striped">
-										<thead>
-											<tr>
-												<th>Name</th>
-												<th>Date</th>
-												<th>Grade</th>
-												<th>Classified</th>
-												<th>Absent</th>
-												</tr>
-											</thead>
-											<tbody>
-											<?php
-                                            while ($row = mysql_fetch_array($query)) {
-                                            echo "<tr>";
-											//print table
-                                            echo "<td>".$row[name]."</td>";
-                                            echo "<td>".$row[date]."</td>";
-											echo "<td>".$row[grade]."</td>";
-											echo "<td>".$row[type]."</td>";
-                                            echo "<td>".$row[absent]."</td>";
-                                            echo "</tr>";
-                                            }
-                                            ?>
-											</tbody>
-									</table>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-heading">Absence form</div>
+									<div class="panel-body">
+									    <!-- Form submit script -->
+										<form action="attendancesubmit.php" method="post">
+                                          Name (Ex. Joshua Huang): <br>
+                                          <input type ="text" name = "name" class="form-control" required type="text"/><br>
+                                          <br>
+                                          Date (MM/DD/YYYY): <br>
+										  <!-- Date Autofill -->
+                                          <input name="date" class="form-control" id="item34_date_1" required type="text"
+                                          data-hint="" value="<?php echo date('m/d/Y'); ?>" />
+                                          <br>
+										  <br>
+										  Grade (Preschool, 6): <br>
+                                          <input type ="text" name = "grade" class="form-control"/><br>
+                                          <br>
+										  Classification (Cubbies, Sparks, T&T): <br>
+                                          <input type ="text" name = "type" class="form-control"/><br>
+                                          <br>
+                                          Absent:<br>
+                                          <input type="radio" name="absent" value="Yes"> Yes<br>
+                                          <input type="radio" name="absent" value="No"> No<br><br> 
+                                          <input type="submit" name="Submit" value="Submit" class="btn btn-info/>
+
+									</div>
 								</div>
-						</div>		
+							</div>
+
+
 					</div>
 				</div>
-
+				
 				<div class="row">
 					<div class="clearfix pt pb">
 
@@ -117,7 +109,7 @@
 		</div>
 	</div>
 
-	<!-- Loading Scripts -->
+	<!-- Scripts -->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

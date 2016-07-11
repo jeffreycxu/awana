@@ -53,6 +53,7 @@
 				<li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
 				<li><a href="tables.php"><i class="fa fa-table"></i>Records</a></li>
 				<li class="open"><a href="forms.php"><i class="fa fa-edit"></i> Attendance Submission</a></li>
+				<li><a href="bookforms.php"><i class="fa fa-edit"></i> Book Submission</a></li>
 
 			</ul>
 		</nav>
@@ -84,8 +85,10 @@
                                           <input type ="text" name = "grade" class="form-control"/><br>
                                           <br>
 										  Classification (Cubbies, Sparks, T&T): <br>
-                                          <input type ="text" name = "type" class="form-control"/><br>
-                                          <br>
+                                          <input type="radio" name="type" value="Cubbies"> Cubbies<br>
+                                          <input type="radio" name="type" value="Sparks"> Sparks<br>
+                                          <input type="radio" name="type" value="T&T"> T&T<br>
+                                          <input type="radio" name="type" value="LIT"> LIT<br><br>
                                           Absent:<br>
                                           <input type="radio" name="absent" value="Yes"> Yes<br>
                                           <input type="radio" name="absent" value="No"> No<br><br> 
