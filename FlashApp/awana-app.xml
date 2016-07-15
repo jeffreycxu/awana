@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<application xmlns="http://ns.adobe.com/air/application/17.0">
+    <id>awana</id>
+    <versionNumber>1.0.0</versionNumber>
+    <filename>awana</filename>
+    <description></description>
+    <!-- To localize the description, use the following format for the description element.
+	<description>
+		<text xml:lang="en">English App description goes here</text>
+		<text xml:lang="fr">French App description goes here</text>
+		<text xml:lang="ja">Japanese App description goes here</text>
+	</description>
+	-->
+    <name>awana</name>
+    <!-- To localize the name, use the following format for the name element.
+	<name>
+		<text xml:lang="en">English App name goes here</text>
+		<text xml:lang="fr">French App name goes here</text>
+		<text xml:lang="ja">Japanese App name goes here</text>
+	</name>
+	-->
+    <copyright></copyright>
+    <initialWindow>
+        <content>awana.swf</content>
+        <systemChrome>standard</systemChrome>
+        <transparent>false</transparent>
+        <visible>true</visible>
+        <fullScreen>false</fullScreen>
+        <autoOrients>false</autoOrients>
+        <aspectRatio>landscape</aspectRatio>
+        <renderMode>cpu</renderMode>
+    </initialWindow>
+    <customUpdateUI>false</customUpdateUI>
+    <allowBrowserInvocation>false</allowBrowserInvocation>
+    <icon>
+        <image36x36>icons/36awanaicon.png</image36x36>
+        <image48x48>icons/48iconawana.png</image48x48>
+        <image72x72>icons/72iconawana.png</image72x72>
+        <image96x96>icons/96iconawana.png</image96x96>
+    </icon>
+    <android>
+        <manifestAdditions><![CDATA[<manifest><uses-permission android:name="android.permission.INTERNET"/></manifest>]]></manifestAdditions>
+    </android>
+    <supportedLanguages>en</supportedLanguages>
+    <versionLabel></versionLabel>
+</application>
