@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+	<fx:Declarations>
+		<mx:Script>
+			<![CDATA[
+			private function init():void {
+			var colorArr:Array = [0xFFFFFF, 0xCCCCCC, 0x999999];
+			tileList.setStyle("alternatingItemColors", colorArr);
+			}
+			]]>
+		</mx:Script>
+		
+		<mx:ArrayCollection id="arrColl">
+			<mx:source>
+				<mx:Array>
+					<mx:Object label="One" />
+					<mx:Object label="Two" />
+					<mx:Object label="Three" />
+					<mx:Object label="Four" />
+					<mx:Object label="Five" />
+					<mx:Object label="Six" />
+					<mx:Object label="Seven" />
+					<mx:Object label="Eight" />
+					<mx:Object label="Nine" />
+					<mx:Object label="Ten" />
+					<mx:Object label="Eleven" />
+					<mx:Object label="Twelve" />
+				</mx:Array>
+			</mx:source>
+		</mx:ArrayCollection>
+		
+		<mx:TileList id="tileList"
+					 dataProvider="{arrColl}"
+					 columnCount="4"
+					 columnWidth="120"
+					 rowCount="3"
+					 rowHeight="80"
+					 initialize="init();" />
+		
+</mx:Application>
+	</fx:Declarations>
+	<s:Label x = "167" y = "139" text = "Hello World" fontSize  = "20" fontWeight="bold"/>
+	<s:DataGrid x="82" y="182" width="357" height="277" requestedRowCount="4">
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn dataField="dataField1" headerText="Column 1"></s:GridColumn>
+				<s:GridColumn dataField="dataField2" headerText="Column 2"></s:GridColumn>
+				<s:GridColumn dataField="dataField3" headerText="Column 3"></s:GridColumn>
+			</s:ArrayList>
+		</s:columns>
+		<s:typicalItem>
+			<fx:Object dataField1="Sample Data" dataField2="Sample Data" dataField3="Sample Data"></fx:Object>
+		</s:typicalItem>
+		<s:ArrayList>
+			<fx:Object dataField1="hi	" dataField2="data1" dataField3="data1"></fx:Object>
+			<fx:Object dataField1="data2" dataField2="data2" dataField3="data2"></fx:Object>
+			<fx:Object dataField1="data3" dataField2="data3" dataField3="data3"></fx:Object>
+			<fx:Object dataField1="data4" dataField2="data4" dataField3="data4"></fx:Object>
+		</s:ArrayList>
+	</s:DataGrid>
+</s:Application>
