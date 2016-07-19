@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "restricted area"
-AuthUserFile /home/admin/web/poc.jebastion-co.tk/public_html/staff/.htpasswd
-require valid-user
