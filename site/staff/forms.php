@@ -81,7 +81,7 @@
                                           data-hint="" value="<?php echo date('m/d/Y'); ?>" />
                                           <br>
 										  <br>
-										  Grade (Preschool, 6): <br>
+										  Class (Cubbies, 6): <br>
                                           <input type ="text" name = "grade" class="form-control"/><br>
                                           <br>
 										  Classification (Cubbies, Sparks, T&T): <br>
